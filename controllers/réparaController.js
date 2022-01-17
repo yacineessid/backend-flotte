@@ -44,6 +44,7 @@ const updateRéparation=async(req,res)=>{
 const deleteRéparation =async(req,res)=>{
     let id=req.params.id
     await Réparation.destroy({where:{id:id}})
+    res.status(200).send('data is  destroyed')
 }
 
 module.exports={addRéparation,getRéparation,getOneRéparation,updateRéparation,deleteRéparation }

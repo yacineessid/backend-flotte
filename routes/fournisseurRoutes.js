@@ -5,7 +5,7 @@ const router= require('express').Router()
 router.post('/fournisseur' ,fournisController.addFournisseur)
 router.get('/fournisseur',fournisController.getFournisseur)
 router.get('/fournisseur/:id',fournisController.getOneFournisseur)
-router.put('/fournisseur',fournisController.updateFournisseur)
-router.delete('/fournisseur',fournisController.deleteFournisseur)
+router.put('/fournisseur/:id',fournisController.updateFournisseur)
+router.delete('/fournisseur/:id',fournisController.deleteFournisseur)
 
 module.exports=router

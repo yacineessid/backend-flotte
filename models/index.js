@@ -9,6 +9,9 @@ const sequelize =new Sequelize(
         host:dbConfig.HOST,
         dialect:dbConfig.dialect,
         operatorAliases:false,
+        options: {
+            requestTimeout: 60000,
+          },
         
         pol:{
             max:dbConfig.pool.max,
@@ -41,8 +44,19 @@ db.entretien=require('./entretien.js')(sequelize , DataTypes)
 db.fournisseur=require('./fournisseur')(sequelize , DataTypes)
 db.réparation=require('./réparation')(sequelize , DataTypes)
 db.transport=require('./transport')(sequelize , DataTypes)
+db.typeEntretien=require('./typeEntretien')(sequelize , DataTypes)
+db.marqueVoiture=require('./marqueVoiture')(sequelize , DataTypes)
 
-db.sequelize.sync({force:true,logging:true})
+
+// Object.keys(db).forEach((modelName) => {
+//     console.log(db);
+//     if (db[modelName].associate) {
+//       db[modelName].associate(db);
+//     }
+//   });
+
+
+db.sequelize.sync({force :true})
 .then(()=>{
     console.log('yes re-sync done');
 })

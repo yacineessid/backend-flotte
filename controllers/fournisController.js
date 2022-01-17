@@ -7,6 +7,7 @@ const Fournisseur= db.fournisseur
 
 const addFournisseur=async(req,res)=>{
     let newFournisseur={
+       id:req.body.id,
        id:req.body.idType,
        société:req.body.société,
        adresse:req.body.adresse,

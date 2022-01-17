@@ -2,7 +2,8 @@ module.exports=(sequelize,DataTypes)=>{
     const transport= sequelize.define('transport',{
         id:{
             type:DataTypes.INTEGER,
-            primaryKey:true
+            primaryKey:true,
+            autoIncrement:true
         },
         idConducteur:{
             type:DataTypes.INTEGER

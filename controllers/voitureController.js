@@ -7,7 +7,7 @@ const Voiture= db.voiture
 // 1 create voiture
 
 const addVoiture=async(req,res)=>{
-    let newUser={
+    let newvoiture={
         id:req.body.id,
         matricule:req.body.matricule,
         idMarque:req.body.idMarque,
@@ -17,7 +17,7 @@ const addVoiture=async(req,res)=>{
         visite:req.body.visite,
         assurance:req.body.assurance,
     }
-    const voiture= await Voiture.create(newVoiture)
+    const voiture= await Voiture.create(newvoiture)
     res.status(200).send(voiture) 
 }
 

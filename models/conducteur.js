@@ -2,7 +2,9 @@ module.exports= (sequelize,DataTypes)=>{
     const conducteur =sequelize.define('conducteur',{
         id:{
             type:DataTypes.INTEGER,
-            primaryKey: true
+            primaryKey: true,
+            autoIncrement:true
+            
         },
        nom:{
             type:DataTypes.STRING,

@@ -8,9 +8,9 @@ const User= db.users
 
 const addUser=async(req,res)=>{
     let newUser={
+        id:req.body.id,
         username:req.body.username,
-
-        password:req.password.body 
+        password:req.body.password
     }
     const user= await User.create(newUser)
     res.status(200).send(user) 

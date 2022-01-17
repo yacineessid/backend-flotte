@@ -7,6 +7,7 @@ const  Entretien= db.entretien
 
 const addEntretien=async(req,res)=>{
     let newEntretien={
+       id:req.body.id,
        idType:req.body.idType,
        idFournisseur:req.body.idFournisseur,
        date:req.body.date,
@@ -35,14 +36,16 @@ const getOneEntretien=async(req,res)=>{
 
 const updateEntretien=async(req,res)=>{
     let id=req.params.id
-    let entretien= await Entretien.update(req.body,{where :{id:id}})
-    res.status(200).send(entretien)
+    let entretien= await Entretien.update(req.body,{where :{id:id}},
+        )
+    res.status(200).send(entretien ,)
 }
 
 //delete entretien
 const deleteEntretien =async(req,res)=>{
     let id=req.params.id
     await Entretien.destroy({where:{id:id}})
+    res.status(200).send('data is  destroyed')
 }
 
 module.exports={ addEntretien ,getEntretien,getOneEntretien,updateEntretien,deleteEntretien}

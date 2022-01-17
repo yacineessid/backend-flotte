@@ -3,7 +3,8 @@ module.exports=(sequelize,DataTypes)=>{
     const fournisseur = sequelize.define('fournisseur',{
         id:{
             type:DataTypes.INTEGER,
-            primaryKey:true
+            primaryKey:true,
+            autoIncrement:true
         },
         société:{
             type:DataTypes.STRING

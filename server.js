@@ -8,8 +8,13 @@ app.use(express.json());
 
 //routers
 const userRoutes = require("./routes/userRoutes.js");
-const entretienRoutes=require('./routes/entretienRoutes')
-app.use("/", userRoutes , entretienRoutes);
+const entretienRoutes=require('./routes/entretienRoutes');
+const transportRoutes=require('./routes/TransportRoutes');
+const fournisseurRoutes=require('./routes/fournisseurRoutes');
+const voitureRoutes=require('./routes/voitureRoutes');
+const  réparationRoutes=require('./routes/réparationRoutes');
+const conducteurRoutes=require('./routes/ConducteurRoutes')
+app.use("/", userRoutes , entretienRoutes,transportRoutes,fournisseurRoutes,voitureRoutes,réparationRoutes,conducteurRoutes);
 
 
 

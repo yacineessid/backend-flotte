@@ -1,4 +1,5 @@
 module.exports= (sequelize,DataTypes)=>{
+    console.log(sequelize);
     const entretien =sequelize.define('entretien',{
         id:{
             type:DataTypes.INTEGER,
@@ -23,14 +24,21 @@ module.exports= (sequelize,DataTypes)=>{
             allowNull:false
         }
        
-    });
+    },
+
+    {
+        timestamps:true,
+        tableName:"entretien",
+    }
+    
+    );
     entretien.associate=function(){
-        this.belongsTo(sequelize.models.entretien,{
-            foreignKey:"idType",
-            as:"type"
+        this.belongsTo(sequelize.models.typeEntretien,{
+            foreignKey:'idType'
+         
         })
         this.associate=function(){
-            this.belongsTo(sequelize.models.entretien,{
+            this.belongsTo(sequelize.models.fournisseur,{
                 foreignKey:"idFournisseur",
                 as:"fournisseur"
             })

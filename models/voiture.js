@@ -38,12 +38,12 @@ module.exports= (sequelize,DataTypes)=>{
     
     });
     voiture.associate=function(){
-        this.belongsTo(sequelize.models.voiture,{
+        this.belongsTo(sequelize.models.modèleVoiture,{
             foreignKey:"idModèle",
             as:"modèle"
         })
         this.associate=function(){
-            this.belongsTo(sequelize.models.voiture,{
+            this.belongsTo(sequelize.models.marqueVoiture,{
                 foreignKey:"idMarque",
                 as:"marque"
             })

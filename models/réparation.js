@@ -2,7 +2,8 @@ module.exports=(sequelize,DataTypes)=>{
     const réparation =sequelize.define('réparation',{
         id:{
             type:DataTypes.INTEGER,
-            primaryKey:true
+            primaryKey:true,
+            autoIncrement:true
         },
         matricule:{
             type:DataTypes.STRING
