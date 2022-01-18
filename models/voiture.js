@@ -15,7 +15,7 @@ module.exports= (sequelize,DataTypes)=>{
             type:DataTypes.INTEGER,
             
         },
-       idModèle:{
+       idModele:{
             type:DataTypes.INTEGER,
       
         },
@@ -23,7 +23,7 @@ module.exports= (sequelize,DataTypes)=>{
             type:DataTypes.STRING,
        
         },
-       Aquisition:{
+       aquisition:{
             type:DataTypes.STRING,
         
         },
@@ -36,10 +36,18 @@ module.exports= (sequelize,DataTypes)=>{
             
         }
     
-    });
+    },
+    {
+        timestamps: true,
+        tableName: "voiture",
+        createdAt: "creerLe",
+        updatedAt: "modifierLe",
+        deletedAt: "supprimerLe",
+      },
+   );
     voiture.associate=function(){
-        this.belongsTo(sequelize.models.modèleVoiture,{
-            foreignKey:"idModèle",
+        this.belongsTo(sequelize.models.modeleVoiture,{
+            foreignKey:"idModele",
             as:"modèle"
         })
         this.associate=function(){

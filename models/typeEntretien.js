@@ -16,9 +16,13 @@ module.exports= (sequelize,DataTypes)=>{
   
       },
       {
-        timestamps:true,
-        tableName:"typeEntretien",
-    }
+        timestamps: true,
+        tableName: "typeEntretien",
+        createdAt: "creerLe",
+        updatedAt: "modifierLe",
+        deletedAt: "supprimerLe",
+      },
+   
       );
   
       

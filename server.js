@@ -1,6 +1,8 @@
+require('dotenv').config()
 const express =require('express');
 const cors=require('cors')
 const app=express()
+
 
 
 app.use(express.urlencoded( {extended:true }));
@@ -12,9 +14,11 @@ const entretienRoutes=require('./routes/entretienRoutes');
 const transportRoutes=require('./routes/TransportRoutes');
 const fournisseurRoutes=require('./routes/fournisseurRoutes');
 const voitureRoutes=require('./routes/voitureRoutes');
-const  réparationRoutes=require('./routes/réparationRoutes');
+const  réparationRoutes=require('./routes/reparationRoutes');
 const conducteurRoutes=require('./routes/ConducteurRoutes')
-app.use("/", userRoutes , entretienRoutes,transportRoutes,fournisseurRoutes,voitureRoutes,réparationRoutes,conducteurRoutes);
+const typeEntreRoutes=require('./routes/typeEntreRoutes')
+const fournisseurEntretienRoutes=require('./routes/fournisseurEntretienRoutes')
+app.use("/", userRoutes , entretienRoutes,transportRoutes,fournisseurRoutes,voitureRoutes,réparationRoutes,conducteurRoutes,typeEntreRoutes,fournisseurEntretienRoutes);
 
 
 

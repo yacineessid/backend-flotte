@@ -1,11 +1,13 @@
 module.exports= (sequelize,DataTypes)=>{
-    const marqueVoiture =sequelize.define('marque_voiture',{
+
+
+    const modeleVoiture =sequelize.define('modeleVoiture',{
        
        id:{
            type:DataTypes.INTEGER,
            primaryKey:true,
-           autoIncrement:true},
-          
+           autoIncrement:true
+           },
      
            libelle:{
                type:DataTypes.STRING
@@ -15,11 +17,11 @@ module.exports= (sequelize,DataTypes)=>{
     
     {
         timestamps: true,
-        tableName: "marqueVoiture",
+        tableName: "modeleVoiture",
         createdAt: "creerLe",
         updatedAt: "modifierLe",
         deletedAt: "supprimerLe",
       },
    );
-    return marqueVoiture
+    return modeleVoiture
 }

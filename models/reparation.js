@@ -1,31 +1,40 @@
 module.exports=(sequelize,DataTypes)=>{
-    
-    const fournisseur = sequelize.define('fournisseur',{
+    const reparation =sequelize.define('reparation',{
         id:{
             type:DataTypes.INTEGER,
             primaryKey:true,
             autoIncrement:true
         },
-        nom:{
+        description:{
             type:DataTypes.STRING
-        }, 
-        type:{
+        },
+        matricule:{
+            type:DataTypes.STRING
+        },
+        idFournisseur:{
+            type:DataTypes.INTEGER
+        },
+        dateReparation:{
             type:DataTypes.STRING
         },
         adresse:{
             type:DataTypes.STRING
-        },
-        telephone:{
-            type:DataTypes.STRING
         }
     },
+    
     {
         timestamps: true,
-        tableName: "fournisseur",
+        tableName: "reparation",
         createdAt: "creerLe",
         updatedAt: "modifierLe",
         deletedAt: "supprimerLe",
       },
-    )
-    return fournisseur
+
+   )
+    reparation.associate=function(){
+        this.belongsTo(sequelize.models.fournisseur_reparation)
+        foreignKey="idFournisseur"
+        as ="fournisseur"
+    }
+    return reparation
 }

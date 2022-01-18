@@ -14,5 +14,13 @@ module.exports=(sequelize,DataTypes)=>{
         adresse:{
             type:DataTypes.STRING
         }
-    })
+    },
+    )
+    transport.associate=function(){
+        this.belongsTo(sequelize.models.conducteur,{
+            foreignKey:'idCondcuteur',
+            as :'conducteur'
+        })
+    }
+    return transport
 }

@@ -47,7 +47,7 @@ const deleteTransport=async(req,res)=>{
 const updateTransport=async(req,res)=>{
     let id= req.params.id
     const transport=await Transport.update(req.body ,{where :{id:id}})
-    res.status(200).send(user)
+    res.status(200).send(transport)
 }
 
 module.exports={addTransport,getOneTransport,getTransport,updateTransport,deleteTransport}

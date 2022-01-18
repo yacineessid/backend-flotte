@@ -18,6 +18,15 @@ module.exports= (sequelize,DataTypes)=>{
             type:DataTypes.STRING,
             
         }
-    });
+    },
+    {
+        timestamps: true,
+        tableName: "users",
+        createdAt: "creerLe",
+        updatedAt: "modifierLe",
+        deletedAt: "supprimerLe",
+      },
+   
+    );
     return users
 }

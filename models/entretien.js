@@ -1,5 +1,6 @@
-module.exports= (sequelize,DataTypes)=>{
-    console.log(sequelize);
+
+
+module.exports= (sequelize,DataTypes)=>{;
     const entretien =sequelize.define('entretien',{
         id:{
             type:DataTypes.INTEGER,
@@ -24,25 +25,29 @@ module.exports= (sequelize,DataTypes)=>{
             allowNull:false
         }
        
-    },
-
+    },  
     {
-        timestamps:true,
-        tableName:"entretien",
-    }
+        timestamps: true,
+        tableName: "entretiens",
+        createdAt: "creerLe",
+        updatedAt: "modifierLe",
+        deletedAt: "supprimerLe",
+      },
+   
+);
     
-    );
     entretien.associate=function(){
-        this.belongsTo(sequelize.models.typeEntretien,{
-            foreignKey:'idType'
-         
-        })
-        this.associate=function(){
-            this.belongsTo(sequelize.models.fournisseur,{
-                foreignKey:"idFournisseur",
-                as:"fournisseur"
-            })
-       
-    }}
-    return entretien
+    this.belongsTo(sequelize.models.typeEntretien,{
+        foreignKey:'idType',
+        as:'type'
+    });
+    this.belongsTo(sequelize.models.fournisseur,{
+        foreignKey:'idFournisseur',
+        as :'fournisseur'
+    })}
+    
+
+
+        return entretien
+
 }

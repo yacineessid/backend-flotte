@@ -10,7 +10,7 @@ const addConducteur=async(req,res)=>{
     let newCond={
     id:req.body.id,
     nom:req.body.nom,
-    prénom:req.body.prénom}
+    prenom:req.body.prenom}
 
     consconducteur= await User.create(newCond)
     res.status(200).send(conducteur) 

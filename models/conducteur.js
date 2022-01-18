@@ -14,7 +14,17 @@ module.exports= (sequelize,DataTypes)=>{
             type:DataTypes.STRING,
             allowNull:false
         },
-       
-    });
+        
+    },
+    {
+        timestamps: true,
+        tableName: "conducteurs",
+        createdAt: "creerLe",
+        updatedAt: "modifierLe",
+        deletedAt: "supprimerLe",
+      },
+   
+    
+    );
     return conducteur
 }
