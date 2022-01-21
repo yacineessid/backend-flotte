@@ -10,6 +10,7 @@ const addUser=async(req,res)=>{
     let newUser={
         id:req.body.id,
         username:req.body.username,
+        email:req.body.email,
         password:req.body.password
     }
     const user= await User.create(newUser)

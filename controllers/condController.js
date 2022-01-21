@@ -8,19 +8,23 @@ const Conducteur= db.conducteur
 
 const addConducteur=async(req,res)=>{
     let newCond={
-    id:req.body.id,
     nom:req.body.nom,
-    prenom:req.body.prenom}
-
-    consconducteur= await User.create(newCond)
+    prenom:req.body.prenom,
+    email:req.body.email,
+    telephone:req.body.telephone,
+    dateEntree:req.body.dateEntree,
+    dateSortie:req.body.dateSortie,
+}
+    const conducteur= await Conducteur.create(newCond)
     res.status(200).send(conducteur) 
+    console.log(newCond);
 }
 
 
 //get all conducteurs
 const getConducteur=async(req,res)=>{
-   leconducteurs=await Conducteur.findAll({}) 
-   res.status(200).sen(conducteurs)
+   let conducteurs=await Conducteur.findAll({}) 
+   res.status(200).send(conducteurs)
 }
 
 //get conducteur by id
@@ -37,8 +41,9 @@ const getOneConducteur=async(req,res)=>{
 
 const deleteConducteur=async(req,res)=>{
     let id= req.params.id
-    await Conducteur.destroy({where :{id:id}})
-    res.status(200).send('data is  destroyed')
+    await Conducteur.destroy({where:{id:id}})
+    res.status(200).send()
+   
 }
 
 //update conducteurs

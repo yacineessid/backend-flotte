@@ -6,18 +6,20 @@ module.exports= (sequelize,DataTypes)=>{
        id:{
            type:DataTypes.INTEGER,
            primaryKey:true,
-           autoIncrement:true
-         
+           autoIncrement:true   
        },
         username:{
             type:DataTypes.STRING,
          
         },
-        
+       email:{
+            type:DataTypes.STRING,
+         
+        },    
        password:{
             type:DataTypes.STRING,
             
-        }
+        },
     },
     {
         timestamps: true,
