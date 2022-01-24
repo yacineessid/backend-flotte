@@ -7,24 +7,24 @@ const Voiture= db.voiture
 // 1 create voiture
 
 const addVoiture=async(req,res)=>{
-    let newvoiture={
-        id:req.body.id,
+    let newVoiture={
         matricule:req.body.matricule,
         idMarque:req.body.idMarque,
-        idModèle:req.body.idModèle,
+        idModele:req.body.idModele,
         carburant:req.body.carburant,
         aquisition:req.body.aquisition,
         visite:req.body.visite,
         assurance:req.body.assurance,
     }
-    const voiture= await Voiture.create(newvoiture)
+    const voiture= await Voiture.create(newVoiture)
     res.status(200).send(voiture) 
 }
 
 
 //get all voitures
 const getVoiture=async(req,res)=>{
-   let voitures=await Voiture.findAll({}) 
+   let voitures=await Voiture.findAll({include:[{model:db.marque_Voiture , attribute:"libelle"} ,{model:db.modele_Voiture , attribute:"libelle"}]}) 
+   
    res.status(200).send(voitures)
 }
 
@@ -43,7 +43,7 @@ const getOneVoiture=async(req,res)=>{
 const deleteVoiture=async(req,res)=>{
     let id= req.params.id
     await Voiture.destroy({where :{id:id}})
-    res.status(200).send('data is  destroyed')
+    res.status(200).send()
 }
 
 //update voitures

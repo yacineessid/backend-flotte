@@ -9,11 +9,12 @@ module.exports=(sequelize,DataTypes)=>{
         nom:{
             type:DataTypes.STRING
         }, 
-        type:{
-            type:DataTypes.STRING
-        },
+     
         adresse:{
             type:DataTypes.STRING
+        },
+        email:{
+            type: DataTypes.STRING,
         },
         telephone:{
             type:DataTypes.STRING
@@ -26,6 +27,9 @@ module.exports=(sequelize,DataTypes)=>{
         updatedAt: "modifierLe",
         deletedAt: "supprimerLe",
       },
-    )
+    );
+     
+   
+ 
     return fournisseur
 }

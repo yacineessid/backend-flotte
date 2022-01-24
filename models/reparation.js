@@ -31,10 +31,7 @@ module.exports=(sequelize,DataTypes)=>{
       },
 
    )
-    reparation.associate=function(){
-        this.belongsTo(sequelize.models.fournisseur_reparation)
-        foreignKey="idFournisseur"
-        as ="fournisseur"
-    }
+
+
     return reparation
 }

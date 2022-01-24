@@ -19,7 +19,9 @@ const  réparationRoutes=require('./routes/reparationRoutes');
 const conducteurRoutes=require('./routes/ConducteurRoutes')
 const typeEntreRoutes=require('./routes/typeEntreRoutes')
 const fournisseurEntretienRoutes=require('./routes/fournisseurEntretienRoutes')
-app.use("/", userRoutes , entretienRoutes,transportRoutes,fournisseurRoutes,voitureRoutes,réparationRoutes,conducteurRoutes,typeEntreRoutes,fournisseurEntretienRoutes);
+const marqueRoutes=require('./routes/marqueRoutes')
+const modelsRoutes=require('./routes/modelsRoutes')
+app.use("/", userRoutes , entretienRoutes,transportRoutes,fournisseurRoutes,voitureRoutes,réparationRoutes,conducteurRoutes,typeEntreRoutes,fournisseurEntretienRoutes ,marqueRoutes,modelsRoutes);
 
 
 

@@ -39,7 +39,7 @@ const getOneTransport=async(req,res)=>{
 const deleteTransport=async(req,res)=>{
     let id= req.params.id
     await Transport.destroy({where :{id:id}})
-    res.status(200).send('data is  destroyed')
+    res.status(200).send()
 }
 
 //update transports

@@ -1,7 +1,7 @@
 module.exports= (sequelize,DataTypes)=>{
 
 
-    const modeleVoiture =sequelize.define('modeleVoiture',{
+    const modeleVoiture =sequelize.define('modele_Voiture',{
        
        id:{
            type:DataTypes.INTEGER,
@@ -17,7 +17,7 @@ module.exports= (sequelize,DataTypes)=>{
     
     {
         timestamps: true,
-        tableName: "modeleVoiture",
+        tableName: "modele",
         createdAt: "creerLe",
         updatedAt: "modifierLe",
         deletedAt: "supprimerLe",

@@ -45,16 +45,20 @@ module.exports= (sequelize,DataTypes)=>{
         deletedAt: "supprimerLe",
       },
    );
+
     voiture.associate=function(){
-        this.belongsTo(sequelize.models.modeleVoiture,{
+        this.belongsTo(sequelize.models.modele_Voiture,{
             foreignKey:"idModele",
-            as:"modèle"
-        })
-        this.associate=function(){
-            this.belongsTo(sequelize.models.marqueVoiture,{
+           
+        });
+            
+     this.belongsTo(sequelize.models.marque_Voiture,{
                 foreignKey:"idMarque",
-                as:"marque"
-            })
-        }}
-    return voiture
-}
+               
+            })}
+
+            return voiture
+        }
+
+  
+    

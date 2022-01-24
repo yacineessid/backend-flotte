@@ -45,7 +45,7 @@ const updateEntretien=async(req,res)=>{
 const deleteEntretien =async(req,res)=>{
     let id=req.params.id
     await Entretien.destroy({where:{id:id}})
-    res.status(200).send('data is  destroyed')
+    res.status(200).send()
 }
 
 module.exports={ addEntretien ,getEntretien,getOneEntretien,updateEntretien,deleteEntretien}
