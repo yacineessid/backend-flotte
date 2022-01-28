@@ -7,21 +7,21 @@ const Reparation= db.reparation
 
 const addReparation=async(req,res)=>{
     let newReparation={
-       id:req.body.id,
+       idMatricule:req.body.idMatricule, 
+       idFournisseur:req.body.idFournisseur,
        description:req.body.description,
-       matricule:req.body.matricule,
-       Idfournisseur:req.body.Idfournisseur,
        dateReparation:req.body.dateReparation,
-       adresse:req.body.adresse, 
+       montant:req.body.montant,
+ 
     }
-    const reparation= await Fournisseur.create(newReparation)
-    res.status(200).send(reparation) 
+    const reparations= await Reparation.create(newReparation)
+    res.status(200).send(reparations) 
 }
 
 //get reparation
 
 const getReparation=async(req,res)=>{
-    let reparations =await Fournisseur.findAll({})
+    let reparations =await Reparation.findAll({include:[{model:db.fournisseur ,attribute:"nom"},{model:db.voiture,attribute:"matricule"}]})
     res.status(200).send(reparations)
 }
 

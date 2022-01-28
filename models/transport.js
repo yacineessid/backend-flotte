@@ -8,18 +8,23 @@ module.exports=(sequelize,DataTypes)=>{
         idConducteur:{
             type:DataTypes.INTEGER
         },
-        matricule:{
-            type:DataTypes.STRING
+        idMatricule:{
+            type:DataTypes.INTEGER
         },
         adresse:{
+            type:DataTypes.STRING
+        },
+        date:{
             type:DataTypes.STRING
         }
     },
     )
     transport.associate=function(){
         this.belongsTo(sequelize.models.conducteur,{
-            foreignKey:'idCondcuteur',
-            as :'conducteur'
+            foreignKey:'idConducteur'
+        })
+        this.belongsTo(sequelize.models.voiture,{
+            foreignKey:'idMatricule'
         })
     }
     return transport

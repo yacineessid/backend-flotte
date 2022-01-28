@@ -12,4 +12,12 @@ const addType=async(req,res)=>{
   res.status(200).send(type)
 }
 
-module.exports ={addType}
+
+const getTypes=async(req,res)=>{
+
+  const types=await Type.findAll({})
+  res.status(200).send(types)
+
+}
+
+module.exports ={addType, getTypes}

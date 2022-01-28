@@ -8,8 +8,8 @@ module.exports=(sequelize,DataTypes)=>{
         description:{
             type:DataTypes.STRING
         },
-        matricule:{
-            type:DataTypes.STRING
+        idMatricule:{
+            type:DataTypes.INTEGER
         },
         idFournisseur:{
             type:DataTypes.INTEGER
@@ -17,9 +17,11 @@ module.exports=(sequelize,DataTypes)=>{
         dateReparation:{
             type:DataTypes.STRING
         },
-        adresse:{
+
+        montant:{
             type:DataTypes.STRING
         }
+       
     },
     
     {
@@ -29,9 +31,16 @@ module.exports=(sequelize,DataTypes)=>{
         updatedAt: "modifierLe",
         deletedAt: "supprimerLe",
       },
-
    )
 
+   reparation.associate=function(){
+    this.belongsTo(sequelize.models.voiture,{
+        foreignKey:'idMatricule'
+    });
+    this.belongsTo(sequelize.models.fournisseur,{
+        foreignKey:'idFournisseur'
+    })
+}
 
     return reparation
 }

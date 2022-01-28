@@ -8,19 +8,21 @@ const Transport= db.transport
 
 const addTransport=async(req,res)=>{
     let newTransport={
-    id:req.body.id,
     idConducteur:req.body.idConducteur,
-    matricule:req.body.matricule,
+    idMatricule:req.body.idMatricule,
     adresse:req.body.adresse,
+    date:req.body.date
     }
     const transport= await Transport.create(newTransport)
     res.status(200).send(transport) 
 }
 
 
+
+
 //get all transports
 const getTransport=async(req,res)=>{
-   let transports=await Transport.findAll({}) 
+   let transports=await Transport.findAll({include:[{model:db.conducteur,attribute:"nom"},{model:db.voiture,attribute:"matricule"}]}) 
    res.status(200).send(transports)
 }
 
@@ -29,7 +31,6 @@ const getTransport=async(req,res)=>{
 const getOneTransport=async(req,res)=>{
     let id=req.params.id 
     let transport=await Transport.findOne({where: {id:id}})
-    if(users)
     res.status(200).send(transport)
 
 }

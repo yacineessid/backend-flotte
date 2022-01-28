@@ -6,10 +6,17 @@ module.exports= (sequelize,DataTypes)=>{;
             type:DataTypes.INTEGER,
             primaryKey: true,
             autoIncrement:true
+            
+        },
+        idMatricule:{
+            type:DataTypes.INTEGER
         },
        idType:{
             type:DataTypes.INTEGER,
            
+        },
+        description:{
+         type:DataTypes.STRING
         },
         idFournisseur:{
             type:DataTypes.INTEGER,
@@ -39,12 +46,17 @@ module.exports= (sequelize,DataTypes)=>{;
     entretien.associate=function(){
     this.belongsTo(sequelize.models.typeEntretien,{
         foreignKey:'idType',
-        as:'type'
+       
     });
     this.belongsTo(sequelize.models.fournisseur,{
         foreignKey:'idFournisseur',
-        as :'fournisseur'
-    })}
+
+    });
+    this.belongsTo(sequelize.models.voiture,{
+        foreignKey:'idMatricule'
+    })
+  
+}
     
 
 

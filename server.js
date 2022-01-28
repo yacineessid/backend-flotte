@@ -21,7 +21,9 @@ const typeEntreRoutes=require('./routes/typeEntreRoutes')
 const fournisseurEntretienRoutes=require('./routes/fournisseurEntretienRoutes')
 const marqueRoutes=require('./routes/marqueRoutes')
 const modelsRoutes=require('./routes/modelsRoutes')
-app.use("/", userRoutes , entretienRoutes,transportRoutes,fournisseurRoutes,voitureRoutes,réparationRoutes,conducteurRoutes,typeEntreRoutes,fournisseurEntretienRoutes ,marqueRoutes,modelsRoutes);
+const carburantRoutes=require('./routes/carburantRoutes')
+app.use("/", userRoutes , entretienRoutes,transportRoutes,fournisseurRoutes,voitureRoutes,réparationRoutes,conducteurRoutes,
+typeEntreRoutes,fournisseurEntretienRoutes ,marqueRoutes,modelsRoutes,carburantRoutes);
 
 
 

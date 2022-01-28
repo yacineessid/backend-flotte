@@ -26,7 +26,7 @@ const sequelize =new Sequelize(
 )
 
 sequelize
-  .sync({force:true })
+  .sync({})
   .then(() => {
     console.log("Connection with dataBase " + process.env.DATABASE_NAME + " has been established!")
   })

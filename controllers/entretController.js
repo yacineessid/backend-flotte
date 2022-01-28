@@ -7,8 +7,9 @@ const  Entretien= db.entretien
 
 const addEntretien=async(req,res)=>{
     let newEntretien={
-       id:req.body.id,
+       idMatricule:req.body.idMatricule,
        idType:req.body.idType,
+       description:req.body.description,
        idFournisseur:req.body.idFournisseur,
        date:req.body.date,
        montant:req.body.montant 
@@ -20,7 +21,7 @@ const addEntretien=async(req,res)=>{
 //get entretien
 
 const getEntretien=async(req,res)=>{
-    let entretiens =await Entretien.findAll({})
+    let entretiens =await Entretien.findAll({include:[{model:db.typeEntretien , attribute:"libelle"},{model:db.fournisseur ,attribute:"nom"},{model:db.voiture ,attribute:"matricule"}]})
     res.status(200).send(entretiens)
 }
 
